@@ -10,7 +10,10 @@ function M.setup()
       link = 'Normal',
     })
     vim.api.nvim_set_hl(0, 'FloatBorder', {
-        bg = 'none',
+        bg = 'NONE',
+    })
+    vim.api.nvim_set_hl(0, 'FloatBorder', {
+        bg = 'NONE',
     })
 end
 
@@ -22,7 +25,7 @@ function M.draw_search_window()
         width = 40,
         height = 4,
         focusable = true,
-        title = "Spotivim Search",
+        title = " Spotivim Search ",
         title_pos = "center",
         border = "rounded",
         style = "minimal"

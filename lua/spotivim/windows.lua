@@ -1,7 +1,7 @@
 local M = {}
 
 function M.setup()
-    M.seach_buffer = vim.api.nvim_create_buf(false, true)
+    M.search_buffer = vim.api.nvim_create_buf(false, true)
     M.results_buffer = vim.api.nvim_create_buf(false, true)
     M.types_buffer = vim.api.nvim_create_buf(false, true)
 end

@@ -7,7 +7,7 @@ function M.setup()
 end
 
 function M.draw_search_window()
-    vim.api.nvim_open_win(M.search_buffer, true, {
+    local win = vim.api.nvim_open_win(M.search_buffer, true, {
         relative = "editor",
         row = 3,
         col = 3,
@@ -17,7 +17,17 @@ function M.draw_search_window()
         title = "Spotivim Search",
         title_pos = "center",
         border = "rounded",
+        style = "minimal"
     })
+    vim.api.nvim_set_option_value("winhighlight", table.concat({
+        "Normal:NormalFloat",
+        "FloatBorder:FloatBorder",
+        "FloatTitle:FloatTitle",
+    }, ","), {
+        win = win,
+    })
+
+    M.search_window = win
 end
 
 return M

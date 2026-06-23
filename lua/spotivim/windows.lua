@@ -58,7 +58,7 @@ local function draw_search_results_window()
         row = window_defaults.row,
         col = window_defaults.col,
         width = window_defaults.width,
-        height = window_defaults.height - 6,
+        height = window_defaults.height - 5,
         focusable = true,
         title = " Search Types ",
         title_pos = "center",

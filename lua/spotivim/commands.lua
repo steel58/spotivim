@@ -2,7 +2,7 @@ local M = {}
 
 local function print_config()
     local config = require("spotivim").config
-    print(config)
+    require("spotivim.utils").print_table(config)
 end
 
 

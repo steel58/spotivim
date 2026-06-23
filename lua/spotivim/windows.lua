@@ -4,6 +4,10 @@ function M.setup()
     M.search_buffer = vim.api.nvim_create_buf(false, true)
     M.results_buffer = vim.api.nvim_create_buf(false, true)
     M.types_buffer = vim.api.nvim_create_buf(false, true)
+    vim.api.nvim_set_hl(0, 'NormalFloat', {
+      link = 'Normal',
+    })
+
 end
 
 function M.draw_search_window()
@@ -19,14 +23,6 @@ function M.draw_search_window()
         border = "rounded",
         style = "minimal"
     })
-    vim.api.nvim_set_option_value("winhighlight", table.concat({
-        "Normal:NormalFloat",
-        "FloatBorder:FloatBorder",
-        "FloatTitle:FloatTitle",
-    }, ","), {
-        win = win,
-    })
-
     M.search_window = win
 end
 

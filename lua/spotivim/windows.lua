@@ -15,6 +15,11 @@ function M.setup()
     M.search_buffer = vim.api.nvim_create_buf(false, true)
     M.results_buffer = vim.api.nvim_create_buf(false, true)
     M.types_buffer = vim.api.nvim_create_buf(false, true)
+    M.types_buffer = vim.api.nvim_create_buf(false, true)
+
+    vim.api.nvim_set_option_value("buftype", "nofile", { buf = M.types_buffer })
+    vim.api.nvim_set_option_value("bufhidden", "wipe", { buf = M.types_buffer })
+    vim.api.nvim_set_option_value("swapfile", false, { buf = M.types_buffer })
 end
 
 local function draw_search_window()

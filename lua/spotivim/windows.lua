@@ -4,10 +4,10 @@ local function get_global_data()
     local width = vim.api.nvim_get_option("columns")
     local height = vim.api.nvim_get_option("lines")
     return {
-        width = width * 0.8,
-        height = height * 0.8,
-        row = height * 0.1,
-        col = width * 0.1,
+        width = math.floor(width * 0.8),
+        height = math.floor(height * 0.8),
+        row = math.floor(height * 0.1),
+        col = math.floor(width * 0.1),
     }
 end
 

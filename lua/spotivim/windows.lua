@@ -17,7 +17,7 @@ function M.setup()
     M.types_buffer = vim.api.nvim_create_buf(false, true)
 end
 
-function M.draw_search_window()
+local function draw_search_window()
     local window_defaults = get_global_data()
     local win = vim.api.nvim_open_win(M.search_buffer, true, {
         relative = "editor",
@@ -32,6 +32,28 @@ function M.draw_search_window()
         style = "minimal"
     })
     M.search_window = win
+end
+
+local function draw_search_types_window()
+    local window_defaults = get_global_data()
+    local win = vim.api.nvim_open_win(M.search_buffer, true, {
+        relative = "editor",
+        row = window_defaults.height + window_defaults.row - 3,
+        col = window_defaults.col,
+        width = window_defaults.width,
+        height = 1,
+        focusable = true,
+        title = " Search Types ",
+        title_pos = "center",
+        border = "rounded",
+        style = "minimal"
+    })
+    M.search_window = win
+end
+
+function M.draw_windows()
+    draw_search_types_window()
+    draw_search_window()
 end
 
 return M

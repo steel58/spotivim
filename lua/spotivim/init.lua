@@ -1,7 +1,9 @@
 local M = {}
 
 local defaults = {
-    greeting = "Hello from my plugin!",
+    client_secret = "NONE",
+    client_id = "NONE",
+    country_code = "CA",
 }
 
 M.config = vim.deepcopy(defaults)
@@ -9,11 +11,7 @@ M.config = vim.deepcopy(defaults)
 function M.setup(opts)
     M.config = vim.tbl_deep_extend("force", defaults, opts or {})
 
-    require("my_plugin.commands").init_commands()
-end
-
-function M.hello()
-    print(M.config.greeting)
+    require("spotivim.commands").init_commands()
 end
 
 return M

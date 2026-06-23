@@ -4,10 +4,14 @@ function M.setup()
     M.search_buffer = vim.api.nvim_create_buf(false, true)
     M.results_buffer = vim.api.nvim_create_buf(false, true)
     M.types_buffer = vim.api.nvim_create_buf(false, true)
+
+    -- Make Pretty windows so i don't kms
     vim.api.nvim_set_hl(0, 'NormalFloat', {
       link = 'Normal',
     })
-
+    vim.api.nvim_set_hl(0, 'NormalFloat', {
+      link = 'Normal',
+    })
 end
 
 function M.draw_search_window()

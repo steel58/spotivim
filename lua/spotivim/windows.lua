@@ -1,5 +1,16 @@
 local M = {}
 
+local function get_global_data()
+    local width = vim.api.nvim_get_options("width")
+    local height = vim.api.nvim_get_options("height")
+    return {
+        width = width * 0.8,
+        height = height * 0.8,
+        row = height * 0.1,
+        col = width * 0.1,
+    }
+end
+
 function M.setup()
     M.search_buffer = vim.api.nvim_create_buf(false, true)
     M.results_buffer = vim.api.nvim_create_buf(false, true)
@@ -7,12 +18,13 @@ function M.setup()
 end
 
 function M.draw_search_window()
+    local window_defaults = get_global_data()
     local win = vim.api.nvim_open_win(M.search_buffer, true, {
         relative = "editor",
-        row = 3,
-        col = 3,
-        width = 40,
-        height = 4,
+        row = window_defaults.height + window_defaults.row,
+        col = window_defaults.col,
+        width = window_defaults.width,
+        height = 1,
         focusable = true,
         title = " Spotivim Search ",
         title_pos = "center",

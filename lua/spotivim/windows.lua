@@ -36,9 +36,10 @@ end
 
 local function draw_search_types_window()
     local window_defaults = get_global_data()
-    local win = vim.api.nvim_open_win(M.search_buffer, true, {
+    local row = window_defaults.height + window_defaults.row - 3
+    local win = vim.api.nvim_open_win(M.types_buffer, true, {
         relative = "editor",
-        row = window_defaults.height + window_defaults.row - 3,
+        row = row,
         col = window_defaults.col,
         width = window_defaults.width,
         height = 1,
@@ -48,12 +49,19 @@ local function draw_search_types_window()
         border = "rounded",
         style = "minimal"
     })
-    M.search_window = win
+    vim.api.nvim_buf_set_lines(
+        M.types_buffer,
+        row,
+        row,
+        false,
+        {"Album | Artist | Playlist | Track | Show | Episode | Audiobook"}
+    )
+    M.search_types_window = win
 end
 
 local function draw_search_results_window()
     local window_defaults = get_global_data()
-    local win = vim.api.nvim_open_win(M.search_buffer, true, {
+    local win = vim.api.nvim_open_win(M.results_buffer, true, {
         relative = "editor",
         row = window_defaults.row,
         col = window_defaults.col,
@@ -65,13 +73,13 @@ local function draw_search_results_window()
         border = "rounded",
         style = "minimal"
     })
-    M.search_window = win
+    M.search_results_window = win
 end
 
 function M.draw_windows()
     draw_search_types_window()
-    draw_search_window()
     draw_search_results_window()
+    draw_search_window()
 end
 
 return M

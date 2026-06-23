@@ -5,12 +5,15 @@ function M.setup()
     M.results_buffer = vim.api.nvim_create_buf(false, true)
     M.types_buffer = vim.api.nvim_create_buf(false, true)
 
-    -- Make Pretty windows so i don't kms
-    vim.api.nvim_set_hl(0, 'FloatBorder', {
-        bg = 'NONE',
+    -- Make Pretty windows so i don"t kms
+    vim.api.nvim_set_hl(0, "NormalFloat", {
+      link = "Normal",
     })
-    vim.api.nvim_set_hl(0, 'FloatBorder', {
-        bg = 'NONE',
+    vim.api.nvim_set_hl(0, "FloatBorder", {
+        bg = "#FF0000",
+    })
+    vim.api.nvim_set_hl(0, "FloatBorder", {
+        bg = "NONE",
     })
 end
 

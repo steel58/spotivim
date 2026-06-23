@@ -51,9 +51,27 @@ local function draw_search_types_window()
     M.search_window = win
 end
 
+local function draw_search_results_window()
+    local window_defaults = get_global_data()
+    local win = vim.api.nvim_open_win(M.search_buffer, true, {
+        relative = "editor",
+        row = window_defaults.row,
+        col = window_defaults.col,
+        width = window_defaults.width,
+        height = window_defaults.height - 6,
+        focusable = true,
+        title = " Search Types ",
+        title_pos = "center",
+        border = "rounded",
+        style = "minimal"
+    })
+    M.search_window = win
+end
+
 function M.draw_windows()
     draw_search_types_window()
     draw_search_window()
+    draw_search_results_window()
 end
 
 return M

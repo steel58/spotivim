@@ -7,13 +7,7 @@ function M.setup()
 
     -- Make Pretty windows so i don"t kms
     vim.api.nvim_set_hl(0, "NormalFloat", {
-      link = "Normal",
-    })
-    vim.api.nvim_set_hl(0, "FloatBorder", {
         bg = "#FF0000",
-    })
-    vim.api.nvim_set_hl(0, "FloatBorder", {
-        bg = "NONE",
     })
 end
 

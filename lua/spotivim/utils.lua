@@ -14,7 +14,7 @@ local function dump(tbl)
 end
 
 function M.print_table(tbl)
-    dump(tbl)
+    print(dump(tbl))
 end
 
 return M

@@ -2,7 +2,7 @@ local M = {}
 
 local function get_global_data()
     local width = vim.api.nvim_get_option("columns")
-    local height = vim.api.nvim_get_option("rows")
+    local height = vim.api.nvim_get_option("lines")
     return {
         width = width * 0.8,
         height = height * 0.8,

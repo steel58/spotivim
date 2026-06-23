@@ -6,7 +6,7 @@ function M.setup()
     M.types_buffer = vim.api.nvim_create_buf(false, true)
 
     -- Make Pretty windows so i don"t kms
-    vim.api.nvim_set_hl(0, "NormalFloat", {
+    vim.api.nvim_set_hl(1, "NormalFloat", {
         bg = "#FF0000",
     })
 end
@@ -24,6 +24,7 @@ function M.draw_search_window()
         border = "rounded",
         style = "minimal"
     })
+    vim.api.nvim_win_set_hl_ns(win, 1)
     M.search_window = win
 end
 
